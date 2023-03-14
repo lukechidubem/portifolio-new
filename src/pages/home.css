@@ -1,0 +1,25 @@
+.profile-img {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* body {
+  background-color: black;
+} */
+
+@media (max-width: 700px) {
+  .MuiGrid-root {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .home-about {
+    height: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-about {
+    height: auto !important;
+  }
+}
