@@ -37,7 +37,9 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage2 />} />
-          <Route path="/blog/:id" element={<SingleBlogPage />} />
+          <Route path="/blog-write" element={<BlogPage />} />
+
+          <Route path="/blog/:postId" element={<SingleBlogPage />} />
         </Routes>
         <Footer />
       </ThemeProvider>

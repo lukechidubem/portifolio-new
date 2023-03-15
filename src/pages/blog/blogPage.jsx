@@ -1,4 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { firestore } from "../../firebase";
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  setDoc,
+  doc,
+} from "firebase/firestore";
+
 import axios from "axios";
 import {
   Grid,
@@ -41,26 +51,52 @@ const useStyles = makeStyles((theme) => ({
 const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const classes = useStyles();
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [body, setBody] = useState("");
 
-  useEffect(() => {
-    axios.get("https://api.example.com/posts").then((response) => {
-      setBlogPosts(response.data);
-    });
-  }, []);
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   collection(firestore, "blogPosts").add({
+  //     title,
+  //     image,
+  //     body,
+  //   });
+  //   setTitle("");
+  //   setImage("");
+  //   setBody("");
+  // };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const title = event.target.elements.title.value;
-    const image = event.target.elements.image.value;
-    const bodyText = event.target.elements.bodyText.value;
-    const newBlogPost = {
+
+    console.log("working");
+
+    const postRef = collection(firestore, "blogPosts");
+
+    const newPostRef = doc(postRef);
+    const postId = newPostRef.id;
+
+    const newPost = {
       title,
       image,
-      bodyText,
+      body,
+      postId,
     };
-    setBlogPosts([...blogPosts, newBlogPost]);
-    axios.post("https://api.example.com/posts", newBlogPost);
-    event.target.reset();
+
+    console.log("working");
+    try {
+      const docRef = await setDoc(newPostRef, newPost);
+
+      // console.log("Document written with ID: ", docRef.id);
+
+      setTitle("");
+      setImage("");
+      setBody("");
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
+    console.log("working");
   };
 
   return (
@@ -94,6 +130,8 @@ const BlogPage = () => {
           variant="outlined"
           fullWidth
           className={classes.textField}
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
         />
         <TextField
           id="image"
@@ -101,15 +139,19 @@ const BlogPage = () => {
           variant="outlined"
           fullWidth
           className={classes.textField}
+          value={image}
+          onChange={(event) => setImage(event.target.value)}
         />
         <TextField
-          id="bodyText"
+          id="body"
           label="Body Text"
           multiline
           rows={6}
           variant="outlined"
           fullWidth
           className={classes.textField}
+          value={body}
+          onChange={(event) => setBody(event.target.value)}
         />
         <Button
           variant="contained"

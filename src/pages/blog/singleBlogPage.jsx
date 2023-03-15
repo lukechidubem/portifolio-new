@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { firestore } from "../../firebase";
+import { collection, doc, getDoc, query, where } from "firebase/firestore";
+
 import { useParams } from "react-router-dom";
 import { Typography, Container, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -32,15 +34,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 const SingleBlogPage = () => {
   const classes = useStyles();
-  const { id: postId } = useParams();
+  const { postId } = useParams();
   const [blogPost, setBlogPost] = useState({});
 
+  console.log(postId);
+
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-      .then((response) => {
-        setBlogPost(response.data);
-      });
+    const postRef = doc(firestore, "blogPosts", postId);
+
+    // const postRef = firestore.collection("blogPosts").doc(postId);
+
+    getDoc(postRef).then((doc) => {
+      if (doc.exists) {
+        setBlogPost(doc.data());
+      } else {
+        console.log("No such document!");
+      }
+    });
   }, [postId]);
 
   return (
@@ -51,7 +61,7 @@ const SingleBlogPage = () => {
       <Box
         component="img"
         className={classes.image}
-        src={`https://picsum.photos/id/${blogPost.id}/800`}
+        src={blogPost.image}
         alt={blogPost.title}
       />
       <Typography variant="body1" className={classes.body}>
