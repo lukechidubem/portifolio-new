@@ -11,6 +11,9 @@ import {
 } from "@mui/material";
 import { GradientOverlay } from "./about";
 import profileImg from "../assets/104220384.jpeg";
+import Todo from "../assets/Todo.png";
+import Tour from "../assets/Tour.png";
+import Ecommerce from "../assets/E-commerce.png";
 
 const projects = [
   {
@@ -52,19 +55,37 @@ const projects = [
 
 const projects2 = [
   {
+    id: 1,
     title: "A Tour Aplication",
-    image: "images/Tour.png",
+    image: `${Tour}`,
+    description:
+      "A Nodejs, Express and MongoDB with Pug templating Tour application. The application allows users to register, login, edit profile, change password, reset password, book tours, make payment, receive mails and much more. It also has admin functionalities.",
     link: "https://tours-9w4s.onrender.com",
   },
   {
+    id: 2,
     title: "An E-commerce Aplication",
-    image: "images/E-commerce.png",
+    image: `${Ecommerce}`,
+    description:
+      "A React, Nodejs, Express and MongoDB E-commerce application. This application allows users to register, login, edit profile, order for products, make payment, view order history and much more. It also has Admin pages like, dashboard and all other Admin functionalities.",
     link: "https://lukesecommerce.onrender.com",
   },
   {
+    id: 3,
     title: "Everyday Todo Aplication",
-    image: "images/Todo.png",
+    description: "A vary handy todo application for your every day use",
+    image: `${Todo}`,
     link: "https://lukestodo.onrender.com/",
+  },
+
+  {
+    id: 4,
+    title: "Food Recipe Aplication",
+    description:
+      "A MVC pattern and modern Javascript application of a food recipe. Implemented using food recipe API from Forkify API . The application allows the user to search and view various kinds of food and how to cook them. Users will also be able to add, remove or bookmark custom food recipes. ",
+    image:
+      "https://media.istockphoto.com/id/628097352/photo/fresh-vegetables.jpg?s=612x612&w=is&k=20&c=DPzQbAG4nekhx3RdylzJWXjGhGe9WRdXz3Pz4m1w6D4=",
+    link: "https://github.com/lukechidubem/Food-recipe-app.git",
   },
 ];
 
@@ -89,7 +110,7 @@ const Projects = () => {
           Portfolio Projects
         </Typography>
         <Grid container spacing={4}>
-          {projects.map((project) => (
+          {projects2.map((project) => (
             <Grid key={project.id} item xs={12} sm={6} md={4}>
               <Card
                 sx={{

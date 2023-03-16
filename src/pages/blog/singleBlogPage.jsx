@@ -3,46 +3,22 @@ import { firestore } from "../../firebase";
 import { collection, doc, getDoc, query, where } from "firebase/firestore";
 
 import { useParams } from "react-router-dom";
-import { Typography, Container, Box } from "@mui/material";
-// import { makeStyles } from "@mui/styles";
-
-// const useStyles = (theme) => ({
-//   root: {
-//     flexGrow: 1,
-//     padding: theme.spacing(4),
-//     [theme.breakpoints.down("sm")]: {
-//       padding: theme.spacing(2),
-//     },
-//   },
-//   image: {
-//     width: "100%",
-//     height: "auto",
-//     marginBottom: theme.spacing(2),
-//   },
-//   content: {
-//     marginTop: theme.spacing(4),
-//     [theme.breakpoints.down("sm")]: {
-//       marginTop: theme.spacing(2),
-//     },
-//   },
-//   body: {
-//     marginBottom: theme.spacing(4),
-//     [theme.breakpoints.down("sm")]: {
-//       marginBottom: theme.spacing(2),
-//     },
-//   },
-// });
+import { Typography, Container, Box, useTheme } from "@mui/material";
+import { GradientOverlay } from "../about";
 
 const SingleBlogPage = () => {
   const { postId } = useParams();
   const [blogPost, setBlogPost] = useState({});
 
-  console.log(postId);
+  const theme = useTheme();
+  const neutralLight = theme.palette.neutral.light;
+  const dark = theme.palette.neutral.dark;
+  const background = theme.palette.background.default;
+  const primaryLight = theme.palette.primary.light;
+  const alt = theme.palette.background.alt;
 
   useEffect(() => {
     const postRef = doc(firestore, "blogPosts", postId);
-
-    // const postRef = firestore.collection("blogPosts").doc(postId);
 
     getDoc(postRef).then((doc) => {
       if (doc.exists) {
@@ -54,40 +30,72 @@ const SingleBlogPage = () => {
   }, [postId]);
 
   return (
-    <Container
-      maxWidth="md"
+    <div
       // className={classes.root}
-      sx={{
-        flexGrow: 1,
-        padding: "20px",
-
-        padding: "15px",
-      }}
+      style={{ backgroundColor: background, padding: "20px", flexGrow: 1 }}
     >
-      <Typography gutterBottom variant="h3" component="h1">
-        {blogPost.title}
-      </Typography>
-      <Box
-        component="img"
-        // className={classes.image}
+      <GradientOverlay />
+      <Container
+        maxWidth="md"
+        // className={classes.root}
         sx={{
-          width: "100%",
-          height: "auto",
-          marginBottom: "20px",
-        }}
-        src={blogPost.image}
-        alt={blogPost.title}
-      />
-      <Typography
-        variant="body1"
-        // className={classes.body}
-        sx={{
-          marginBottom: "20px",
+          flexGrow: 1,
+          padding: "20px",
+          backgroundColor: background,
+          color: dark,
+
+          // padding: "15px",
         }}
       >
-        {blogPost.body}
-      </Typography>
-    </Container>
+        <Typography
+          gutterBottom
+          variant="h2"
+          component="h1"
+          color="#0099ff"
+          sx={{ marginBottom: "30px" }}
+        >
+          {blogPost.title}
+        </Typography>
+        <Box
+          component="img"
+          // className={classes.image}
+          sx={{
+            width: "100%",
+            height: "auto",
+            marginBottom: "20px",
+          }}
+          src={blogPost.image}
+          alt={blogPost.title}
+        />
+        {/* <Typography
+          variant="h4"
+          // className={classes.body}
+          component="h3"
+          sx={{
+            marginBottom: "20px",
+            lineHeight: "35px",
+            wordSpacing: "3px",
+          }}
+        > */}
+        {blogPost?.body?.split("\\n").map((str, i) => {
+          return (
+            <Typography
+              key={i}
+              variant="h4"
+              component="h3"
+              sx={{
+                marginBottom: "20px",
+                lineHeight: "35px",
+                wordSpacing: "3px",
+              }}
+            >
+              {str}
+            </Typography>
+          );
+        })}
+        {/* </Typography> */}
+      </Container>
+    </div>
   );
 };
 

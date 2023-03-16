@@ -43,21 +43,32 @@ const HomePage = () => {
                 component="h1"
                 sx={{ mb: 2, fontSize: "2.5rem" }}
               >
-                Hi, I'm Ezeji Dubem Luke
+                Hi, I'm Ezeji Luke
               </Typography>
               <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-                I'm a web developer with 5 years of experience in building
-                websites and web applications.
+                I'm a Full-stack Web Developer with years of experience in
+                building websites and web applications.
               </Typography>
               <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
-                I specialize in React, Node.js, and GraphQL, and have worked
-                with clients ranging from small startups to large corporations.
+                I specialized in JavaScript, HTML, CSS, NodeJS, ExpressJS,
+                ReactJS, NextJS, TypeScript and more. I have worked with clients
+                ranging from small startups to large corporations and enjoys
+                collaborating teams to build amazing things.
               </Typography>
               <Button
                 variant="contained"
-                sx={{ mt: 6, backgroundColor: "#0099ff" }}
+                sx={{
+                  mt: 5,
+                  backgroundColor: "#0099ff",
+                }}
               >
-                Download My Resume
+                <a
+                  style={{ textDecoration: "none" }}
+                  href="https://docs.google.com/document/d/1clavshRxP8PBiUHbz2JYnDFcSdpgYMzpv7BbJA-LIRc/edit"
+                  download
+                >
+                  Download My Resume
+                </a>
               </Button>
             </Box>
           </Grid>

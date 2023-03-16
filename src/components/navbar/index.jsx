@@ -4,35 +4,20 @@ import { useState } from "react";
 import {
   Box,
   IconButton,
-  InputBase,
   Typography,
-  Select,
-  MenuItem,
-  FormControl,
   useTheme,
   useMediaQuery,
-  Button,
 } from "@mui/material";
-import {
-  Search,
-  Message,
-  DarkMode,
-  LightMode,
-  Notifications,
-  Help,
-  Menu,
-  Close,
-} from "@mui/icons-material";
+import { DarkMode, LightMode, Menu, Close } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogout } from "../../redux/slices/auth";
+import { setMode } from "../../redux/slices/auth";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "../FlexBetween";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const user = useSelector((state) => state.user);
+
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const navigate = useNavigate();
@@ -87,19 +72,6 @@ const Navbar = () => {
         >
           LetsCodeIt
         </Typography>
-        {isNonMobileScreens && (
-          <FlexBetween
-            backgroundColor={neutralLight}
-            borderRadius="9px"
-            gap="3rem"
-            padding="0.1rem 1.5rem"
-          >
-            <InputBase placeholder="Search..." />
-            <IconButton>
-              <Search />
-            </IconButton>
-          </FlexBetween>
-        )}
       </FlexBetween>
 
       {/* DESKTOP NAV */}
@@ -131,44 +103,6 @@ const Navbar = () => {
               </Typography>
             );
           })}
-
-          {/* <Typography sx={{ color: dark, fontSize: "20px" }}>About</Typography>
-          <Typography sx={{ color: dark, fontSize: "20px" }}>
-            Projects
-          </Typography>
-          <Typography sx={{ color: dark, fontSize: "20px" }}>Blog</Typography>
-          <Typography sx={{ color: dark, fontSize: "20px" }}>
-            Contact
-          </Typography> */}
-
-          {/* <Message sx={{ color: dark, fontSize: "25px" }} />
-          <Notifications sx={{ color: dark, fontSize: "25px" }} />
-
-          <Help sx={{ color: dark, fontSize: "25px" }} /> */}
-          {/* <FormControl variant="standard" value={"fullName"}>
-            <Select
-              value={"fullName"}
-              sx={{
-                backgroundColor: neutralLight,
-                width: "150px",
-                borderRadius: "0.25rem",
-                p: "0.25rem 1rem",
-                "& .MuiSvgIcon-root": {
-                  pr: "0.25rem",
-                  width: "3rem",
-                },
-                "& .MuiSelect-select:focus": {
-                  backgroundColor: neutralLight,
-                },
-              }}
-              input={<InputBase />}
-            >
-              <MenuItem value={"fullName"}>
-                <Typography>{"fullName"}</Typography>
-              </MenuItem>
-              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
-            </Select>
-          </FormControl> */}
         </FlexBetween>
       ) : (
         <IconButton
@@ -222,7 +156,11 @@ const Navbar = () => {
               return (
                 <Typography
                   key={i}
-                  onClick={() => navigate(`${item.path}`)}
+                  onClick={() => {
+                    navigate(`${item.path}`);
+
+                    setIsMobileMenuToggled(!isMobileMenuToggled);
+                  }}
                   sx={{
                     color: dark,
                     fontSize: "20px",
@@ -236,47 +174,6 @@ const Navbar = () => {
                 </Typography>
               );
             })}
-            {/* <Typography sx={{ color: dark, fontSize: "20px" }}>Home</Typography>
-            <Typography sx={{ color: dark, fontSize: "20px" }}>
-              About
-            </Typography>
-            <Typography sx={{ color: dark, fontSize: "20px" }}>
-              Projects
-            </Typography>
-            <Typography sx={{ color: dark, fontSize: "20px" }}>Blog</Typography>
-            <Typography sx={{ color: dark, fontSize: "20px" }}>
-              Contact
-            </Typography> */}
-
-            {/* <Message sx={{ fontSize: "25px" }} />
-            <Notifications sx={{ fontSize: "25px" }} />
-            <Help sx={{ fontSize: "25px" }} /> */}
-            {/* <FormControl variant="standard" value={"fullName"}>
-              <Select
-                value={"fullName"}
-                sx={{
-                  backgroundColor: neutralLight,
-                  width: "150px",
-                  borderRadius: "0.25rem",
-                  p: "0.25rem 1rem",
-                  "& .MuiSvgIcon-root": {
-                    pr: "0.25rem",
-                    width: "3rem",
-                  },
-                  "& .MuiSelect-select:focus": {
-                    backgroundColor: neutralLight,
-                  },
-                }}
-                input={<InputBase />}
-              >
-                <MenuItem value={"fullName"}>
-                  <Typography>{"fullName"}</Typography>
-                </MenuItem>
-                <MenuItem onClick={() => dispatch(setLogout())}>
-                  Log Out
-                </MenuItem>
-              </Select>
-            </FormControl> */}
           </FlexBetween>
         </Box>
       )}

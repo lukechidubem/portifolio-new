@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import profileImg from "../assets/104220384.jpeg";
 
-import { alpha, styled } from "@mui/system";
+import { styled } from "@mui/system";
 
 export const GradientOverlay = styled("div")(({ theme }) => ({
   position: "absolute",
@@ -18,7 +18,7 @@ export const GradientOverlay = styled("div")(({ theme }) => ({
   left: 0,
   width: "100%",
   height: "100%",
-  background: `linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)`,
+  background: `linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0) 100%)`,
   zIndex: -20,
 }));
 
@@ -36,9 +36,6 @@ function AboutPage() {
         py: 8,
         backgroundColor: background,
         color: dark,
-        // backgroundImage: "url(https://source.unsplash.com/random/1600x900)",
-        // backgroundSize: "cover",
-        // backgroundPosition: "center",
       }}
     >
       <GradientOverlay />
@@ -50,6 +47,7 @@ function AboutPage() {
           mb: 2,
           fontSize: "3rem",
           fontWeight: "bold",
+          color: "#0099ff",
         }}
       >
         About Me
@@ -79,14 +77,22 @@ function AboutPage() {
             {" "}
             Hi, I'm Dubem Luke
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem", ml: 2 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            vulputate, lorem vel malesuada dapibus, nulla lorem faucibus massa,
-            vel euismod nisi quam vitae nisl. Duis suscipit lacinia nibh, eu
-            eleifend elit placerat sed.
+          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}>
+            A proactive Full-Stack Software Engineer with a background in
+            Business and Maritime Management. I specialized in JavaScript, HTML,
+            CSS, NodeJS, ExpressJS, ReactJS, NextJS, TypeScript and more. I
+            possess strong skills in problem solving, communication, and
+            collaboration that leads to quality products & results.
+          </Typography>
+
+          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}>
+            I also love Meeting with the software development team to define the
+            scope and scale of software projects thereby leading to the software
+            architectural design. I am equally eager to expand my knowledge and
+            implement my knowledge in a practical and professional environment.
           </Typography>
           <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem", ml: 2 }}>
-            In my free time, I enjoy hiking, photography, and spending time with
+            In my free time, I enjoy sports, networking, and spending time with
             my family and friends.
           </Typography>
           <Button
@@ -101,7 +107,13 @@ function AboutPage() {
               color: "#333",
             }}
           >
-            Download My Resume
+            <a
+              style={{ textDecoration: "none" }}
+              href="https://docs.google.com/document/d/1clavshRxP8PBiUHbz2JYnDFcSdpgYMzpv7BbJA-LIRc/edit"
+              download
+            >
+              Download My Resume
+            </a>
           </Button>
         </Grid>
       </Grid>
@@ -145,10 +157,6 @@ function AboutPage() {
                 lineHeight: "3",
                 margin: "20px 0 0 0",
               },
-              // "&:hover": {
-              //   backgroundColor: "#0099ff",
-              //   cursor: "pointer",
-              // },
             }}
           >
             <Typography
@@ -170,7 +178,8 @@ function AboutPage() {
                 marginTop: "2rem",
               }}
             >
-              HTML, CSS, JavaScript, React, Node.js, Express, TypeScript
+              HTML, CSS, JavaScript, React, Node.js, Express, TypeScript,
+              Tailwind CSS, MUI
             </Typography>
           </Box>
         </Grid>
@@ -214,7 +223,7 @@ function AboutPage() {
                 marginTop: "2rem",
               }}
             >
-              Sketch, Figma, Adobe Creative Suite
+              Sketch, Figma
             </Typography>
           </Box>
         </Grid>
