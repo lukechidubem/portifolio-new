@@ -8,9 +8,9 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
     color: theme.palette.text.primary,
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
   },
-}));
+});
 
 const ContactPage = () => {
   const messageRef = useRef();

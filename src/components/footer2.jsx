@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
@@ -8,7 +8,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
   root: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1.5rem",
     },
   },
-}));
+});
 
 const Footer2 = () => {
   const classes = useStyles();

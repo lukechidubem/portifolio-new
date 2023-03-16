@@ -14,12 +14,12 @@ import {
   useTheme,
   TextField,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 
 import { Link } from "react-router-dom";
 import { GradientOverlay } from "../about";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
   root: {
     flexGrow: 1,
     padding: theme.spacing(4),
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     color: "#0099ff",
   },
-}));
+});
 
 const BlogPage2 = () => {
   const classes = useStyles();

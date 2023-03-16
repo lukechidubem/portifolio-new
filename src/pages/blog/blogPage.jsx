@@ -20,9 +20,9 @@ import {
   Button,
   Container,
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
   },
-}));
+});
 
 const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);

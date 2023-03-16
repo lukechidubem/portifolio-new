@@ -4,9 +4,9 @@ import { collection, doc, getDoc, query, where } from "firebase/firestore";
 
 import { useParams } from "react-router-dom";
 import { Typography, Container, Box } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
   root: {
     flexGrow: 1,
     padding: theme.spacing(4),
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(2),
     },
   },
-}));
+});
 const SingleBlogPage = () => {
   const classes = useStyles();
   const { postId } = useParams();
