@@ -22,35 +22,35 @@ import {
 } from "@mui/material";
 // import { makeStyles } from "@mui/styles";
 
-const useStyles = (theme) => ({
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  cardMedia: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: theme.spacing(4),
-  },
-  textField: {
-    marginBottom: theme.spacing(2),
-  },
-  button: {
-    marginTop: theme.spacing(2),
-  },
-});
+// const useStyles = (theme) => ({
+//   container: {
+//     paddingTop: theme.spacing(4),
+//     paddingBottom: theme.spacing(4),
+//   },
+//   cardMedia: {
+//     height: 0,
+//     paddingTop: "56.25%", // 16:9
+//   },
+//   cardContent: {
+//     flexGrow: 1,
+//   },
+//   form: {
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//     margin: theme.spacing(4),
+//   },
+//   textField: {
+//     marginBottom: theme.spacing(2),
+//   },
+//   button: {
+//     marginTop: theme.spacing(2),
+//   },
+// });
 
 const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
-  const classes = useStyles();
+  // const classes = useStyles();
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
@@ -100,17 +100,22 @@ const BlogPage = () => {
   };
 
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <Container
+      maxWidth="lg"
+      // className={classes.container}
+    >
       <Grid container spacing={4}>
         {blogPosts.map((post) => (
           <Grid item xs={12} md={4} key={post.id}>
             <Card>
               <CardMedia
-                className={classes.cardMedia}
+                // className={classes.cardMedia}
                 image={post.image}
                 title={post.title}
               />
-              <CardContent className={classes.cardContent}>
+              <CardContent
+              // className={classes.cardContent}
+              >
                 <Typography gutterBottom variant="h5" component="h2">
                   {post.title}
                 </Typography>
@@ -120,7 +125,10 @@ const BlogPage = () => {
           </Grid>
         ))}
       </Grid>
-      <form onSubmit={handleSubmit} className={classes.form}>
+      <form
+        onSubmit={handleSubmit}
+        // className={classes.form}
+      >
         <Typography variant="h4" component="h2" gutterBottom>
           New Blog Post
         </Typography>
@@ -129,7 +137,7 @@ const BlogPage = () => {
           label="Title"
           variant="outlined"
           fullWidth
-          className={classes.textField}
+          // className={classes.textField}
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
@@ -138,7 +146,7 @@ const BlogPage = () => {
           label="Image URL"
           variant="outlined"
           fullWidth
-          className={classes.textField}
+          // className={classes.textField}
           value={image}
           onChange={(event) => setImage(event.target.value)}
         />
@@ -149,7 +157,7 @@ const BlogPage = () => {
           rows={6}
           variant="outlined"
           fullWidth
-          className={classes.textField}
+          // className={classes.textField}
           value={body}
           onChange={(event) => setBody(event.target.value)}
         />
@@ -157,7 +165,7 @@ const BlogPage = () => {
           variant="contained"
           color="primary"
           size="large"
-          className={classes.button}
+          // className={classes.button}
           type="submit"
         >
           Submit

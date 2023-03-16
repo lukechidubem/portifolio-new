@@ -10,32 +10,10 @@ import {
 } from "@mui/material";
 // import { makeStyles } from "@mui/styles";
 
-const useStyles = (theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
-    padding: theme.spacing(4, 0),
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  textField: {
-    // margin: theme.spacing(3, 0),
-    margin: "16px",
-  },
-  button: {
-    marginTop: theme.spacing(2),
-  },
-});
-
 const ContactPage = () => {
   const messageRef = useRef();
   const nameRef = useRef();
   const emailRef = useRef();
-
-  const classes = useStyles();
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
@@ -84,7 +62,7 @@ const ContactPage = () => {
   };
 
   return (
-    <Box className={classes.root} sx={{ backgroundColor: background }}>
+    <Box sx={{ backgroundColor: background }}>
       <Container className=" contact-about" sx={{ height: "80vh" }}>
         <Grid container spacing={2} sx={{ marginTop: "2rem" }}>
           <Grid item xs={12} md={6}>
@@ -130,7 +108,10 @@ const ContactPage = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <form className={classes.form} onSubmit={handleSubmit}>
+            <form
+              // className={classes.form}
+              onSubmit={handleSubmit}
+            >
               <Typography
                 variant="h3"
                 component="h2"
@@ -158,7 +139,7 @@ const ContactPage = () => {
                 fullWidth
                 // inputRef={inputRef}
                 inputRef={emailRef}
-                className={classes.textField}
+                // className={classes.textField}
                 sx={{ marginTop: "30px" }}
               />
               <TextField
@@ -170,7 +151,7 @@ const ContactPage = () => {
                 variant="outlined"
                 fullWidth
                 inputRef={messageRef}
-                className={classes.textField}
+                // className={classes.textField}
                 sx={{ marginTop: "30px" }}
               />
               <Button
@@ -183,7 +164,7 @@ const ContactPage = () => {
                   backgroundColor: "#0099ff",
                   px: "2rem",
                 }}
-                className={classes.button}
+                // className={classes.button}
               >
                 Send
               </Button>

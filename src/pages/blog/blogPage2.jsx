@@ -19,31 +19,30 @@ import {
 import { Link } from "react-router-dom";
 import { GradientOverlay } from "../about";
 
-const useStyles = (theme) => ({
-  root: {
-    flexGrow: 1,
-    padding: theme.spacing(4),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%",
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  readMoreButton: {
-    marginTop: "auto",
-    marginLeft: "auto",
-    color: "#0099ff",
-  },
-});
+// const useStyles = (theme) => ({
+//   root: {
+//     flexGrow: 1,
+//     padding: theme.spacing(4),
+//   },
+//   card: {
+//     height: "100%",
+//     display: "flex",
+//     flexDirection: "column",
+//   },
+//   cardMedia: {
+//     paddingTop: "56.25%",
+//   },
+//   cardContent: {
+//     flexGrow: 1,
+//   },
+//   readMoreButton: {
+//     marginTop: "auto",
+//     marginLeft: "auto",
+//     color: "#0099ff",
+//   },
+// });
 
 const BlogPage2 = () => {
-  const classes = useStyles();
   const [blogPosts, setBlogPosts] = useState([]);
   const blogPostsRef = collection(firestore, "blogPosts");
   const [searchQuery, setSearchQuery] = useState(
@@ -92,7 +91,10 @@ const BlogPage2 = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className={classes.root} sx={{ backgroundColor: background }}>
+    <div
+      // className={classes.root}
+      sx={{ backgroundColor: background }}
+    >
       <GradientOverlay />
       <TextField
         label="Search Blog Posts"
@@ -110,7 +112,7 @@ const BlogPage2 = () => {
             >
               <Link to={`/blog/${blogPost.postId}`}>
                 <CardMedia
-                  className={classes.cardMedia}
+                  // className={classes.cardMedia}
                   image={blogPost.image}
                   title={blogPost.title}
                 />
@@ -124,7 +126,7 @@ const BlogPage2 = () => {
                   {blogPost.body.substring(0, 100)}...{" "}
                   <Link
                     to={`/blog/${blogPost.postId}`}
-                    className={classes.readMoreButton}
+                    // className={classes.readMoreButton}
                   >
                     Read More
                   </Link>

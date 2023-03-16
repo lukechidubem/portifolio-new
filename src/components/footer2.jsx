@@ -8,54 +8,56 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
-const useStyles = (theme) => ({
-  root: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  link: {
-    color: theme.palette.primary.contrastText,
-    "&:hover": {
-      color: theme.palette.secondary.main,
-    },
-  },
+// const useStyles = (theme) => ({
+//   root: {
+//     backgroundColor: theme.palette.primary.main,
+//     color: theme.palette.primary.contrastText,
+//     paddingTop: theme.spacing(4),
+//     paddingBottom: theme.spacing(4),
+//   },
+//   link: {
+//     color: theme.palette.primary.contrastText,
+//     "&:hover": {
+//       color: theme.palette.secondary.main,
+//     },
+//   },
 
-  container: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexWrap: "wrap",
-    width: "100%",
-  },
-  text: {
-    display: "flex",
-    alignItems: "center",
-    fontSize: "1rem",
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "1.25rem",
-    },
-  },
-  icon: {
-    color: "#fff",
-    marginRight: theme.spacing(1),
-    fontSize: "1.25rem",
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "1.5rem",
-    },
-  },
-});
+//   container: {
+//     display: "flex",
+//     justifyContent: "space-between",
+//     alignItems: "center",
+//     flexWrap: "wrap",
+//     width: "100%",
+//   },
+//   text: {
+//     display: "flex",
+//     alignItems: "center",
+//     fontSize: "1rem",
+//     [theme.breakpoints.up("sm")]: {
+//       fontSize: "1.25rem",
+//     },
+//   },
+//   icon: {
+//     color: "#fff",
+//     marginRight: theme.spacing(1),
+//     fontSize: "1.25rem",
+//     [theme.breakpoints.up("sm")]: {
+//       fontSize: "1.5rem",
+//     },
+//   },
+// });
 
 const Footer2 = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div
+    // className={classes.root}
+    >
       {/* <Container maxWidth="md"> */}
       <Grid container spacing={4} justifyContent="space-between">
         <Container
           maxWidth="lg"
-          className={classes.container}
+          // className={classes.container}
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -64,7 +66,7 @@ const Footer2 = () => {
           }}
         >
           <Typography
-            className={classes.text}
+            // className={classes.text}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -105,7 +107,7 @@ const Footer2 = () => {
                 //   fontSize: "1.5rem",
                 // },
               }}
-              className={classes.icon}
+              // className={classes.icon}
               aria-label="LinkedIn"
               href="https://www.linkedin.com/"
               target="_blank"
@@ -114,7 +116,7 @@ const Footer2 = () => {
               <LinkedInIcon />
             </IconButton>
             <IconButton
-              className={classes.icon}
+              // className={classes.icon}
               aria-label="GitHub"
               href="https://github.com/"
               target="_blank"
@@ -124,7 +126,7 @@ const Footer2 = () => {
             </IconButton>
 
             <IconButton
-              className={classes.icon}
+              // className={classes.icon}
               aria-label="GitHub"
               href="https://github.com/"
               target="_blank"
