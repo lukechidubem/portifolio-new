@@ -10,10 +10,32 @@ import {
 } from "@mui/material";
 // import { makeStyles } from "@mui/styles";
 
+// const useStyles = (theme) => ({
+//   root: {
+//     backgroundColor: theme.palette.background.default,
+//     color: theme.palette.text.primary,
+//     padding: theme.spacing(4, 0),
+//   },
+//   form: {
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//   },
+//   textField: {
+//     // margin: theme.spacing(3, 0),
+//     margin: "16px",
+//   },
+//   button: {
+//     marginTop: theme.spacing(2),
+//   },
+// });
+
 const ContactPage = () => {
   const messageRef = useRef();
   const nameRef = useRef();
   const emailRef = useRef();
+
+  // const classes = useStyles();
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
@@ -129,7 +151,7 @@ const ContactPage = () => {
                 fullWidth
                 // ref={inputRef}
                 inputRef={nameRef}
-                className={classes.textField}
+                // className={classes.textField}
               />
               <TextField
                 id="email"
