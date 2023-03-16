@@ -149,13 +149,6 @@ const ContactPage = () => {
                   https://github.com/lukechidubem
                 </a>
               </Typography>
-              <Typography
-                variant="body1"
-                sx={{ mb: 1, fontSize: "1rem" }}
-                gutterBottom
-              >
-                Address: 123 Main Street, Anytown, USA
-              </Typography>
             </Grid>
             <Grid item xs={12} md={6}>
               <form
