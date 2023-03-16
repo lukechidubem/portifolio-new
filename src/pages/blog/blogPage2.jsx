@@ -93,7 +93,7 @@ const BlogPage2 = () => {
   return (
     <div
       // className={classes.root}
-      sx={{ backgroundColor: background }}
+      sx={{ backgroundColor: background, padding: "20px", flexGrow: 1 }}
     >
       <GradientOverlay />
       <TextField
@@ -113,6 +113,7 @@ const BlogPage2 = () => {
               <Link to={`/blog/${blogPost.postId}`}>
                 <CardMedia
                   // className={classes.cardMedia}
+                  sx={{ flexGrow: 1 }}
                   image={blogPost.image}
                   title={blogPost.title}
                 />
@@ -127,6 +128,11 @@ const BlogPage2 = () => {
                   <Link
                     to={`/blog/${blogPost.postId}`}
                     // className={classes.readMoreButton}
+                    sx={{
+                      marginTop: "auto",
+                      marginLeft: "auto",
+                      color: "#0099ff",
+                    }}
                   >
                     Read More
                   </Link>

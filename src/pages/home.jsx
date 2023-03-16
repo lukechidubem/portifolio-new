@@ -63,6 +63,15 @@ const HomePage = () => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <img
+              style={{
+                width: 300,
+                height: 300,
+                mx: "auto",
+                mb: 4,
+                boxShadow: "0 0 20px rgba(0, 0, 0, 0.2)",
+                border: "5px solid white",
+                "& img": { objectFit: "cover" },
+              }}
               // src="https://via.placeholder.com/400x400"
               src={profileImg}
               alt="Luke Dubem"

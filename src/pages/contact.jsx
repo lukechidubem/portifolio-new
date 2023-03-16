@@ -84,7 +84,7 @@ const ContactPage = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: background }}>
+    <Box sx={{ backgroundColor: background, color: dark, marginTop: "-35px" }}>
       <Container className=" contact-about" sx={{ height: "80vh" }}>
         <Grid container spacing={2} sx={{ marginTop: "2rem" }}>
           <Grid item xs={12} md={6}>
@@ -131,6 +131,11 @@ const ContactPage = () => {
           </Grid>
           <Grid item xs={12} md={6}>
             <form
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
               // className={classes.form}
               onSubmit={handleSubmit}
             >
@@ -149,6 +154,7 @@ const ContactPage = () => {
                 label="Name"
                 variant="outlined"
                 fullWidth
+                margin="16px"
                 // ref={inputRef}
                 inputRef={nameRef}
                 // className={classes.textField}
@@ -159,6 +165,7 @@ const ContactPage = () => {
                 label="Email"
                 variant="outlined"
                 fullWidth
+                margin="16px"
                 // inputRef={inputRef}
                 inputRef={emailRef}
                 // className={classes.textField}
@@ -171,6 +178,7 @@ const ContactPage = () => {
                 multiline
                 rows={6}
                 variant="outlined"
+                margin="16px"
                 fullWidth
                 inputRef={messageRef}
                 // className={classes.textField}

@@ -24,7 +24,7 @@ import {
 
 // const useStyles = (theme) => ({
 //   container: {
-//     paddingTop: theme.spacing(4),
+//     paddingTop: '20px',
 //     paddingBottom: theme.spacing(4),
 //   },
 //   cardMedia: {
@@ -103,6 +103,10 @@ const BlogPage = () => {
     <Container
       maxWidth="lg"
       // className={classes.container}
+      sx={{
+        paddingTop: "30px",
+        paddingBottom: "30px",
+      }}
     >
       <Grid container spacing={4}>
         {blogPosts.map((post) => (
@@ -110,11 +114,18 @@ const BlogPage = () => {
             <Card>
               <CardMedia
                 // className={classes.cardMedia}
+                sx={{
+                  height: 0,
+                  paddingTop: "56.25%", // 16:9
+                }}
                 image={post.image}
                 title={post.title}
               />
               <CardContent
-              // className={classes.cardContent}
+                // className={classes.cardContent}
+                sx={{
+                  flexGrow: 1,
+                }}
               >
                 <Typography gutterBottom variant="h5" component="h2">
                   {post.title}
@@ -128,6 +139,12 @@ const BlogPage = () => {
       <form
         onSubmit={handleSubmit}
         // className={classes.form}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "30px",
+        }}
       >
         <Typography variant="h4" component="h2" gutterBottom>
           New Blog Post
@@ -137,6 +154,9 @@ const BlogPage = () => {
           label="Title"
           variant="outlined"
           fullWidth
+          sx={{
+            marginBottom: "20px",
+          }}
           // className={classes.textField}
           value={title}
           onChange={(event) => setTitle(event.target.value)}
@@ -147,6 +167,9 @@ const BlogPage = () => {
           variant="outlined"
           fullWidth
           // className={classes.textField}
+          sx={{
+            marginBottom: "20px",
+          }}
           value={image}
           onChange={(event) => setImage(event.target.value)}
         />
@@ -158,6 +181,9 @@ const BlogPage = () => {
           variant="outlined"
           fullWidth
           // className={classes.textField}
+          sx={{
+            marginBottom: "20px",
+          }}
           value={body}
           onChange={(event) => setBody(event.target.value)}
         />
@@ -165,6 +191,9 @@ const BlogPage = () => {
           variant="contained"
           color="primary"
           size="large"
+          sx={{
+            marginBottom: "20px",
+          }}
           // className={classes.button}
           type="submit"
         >

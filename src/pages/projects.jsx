@@ -50,6 +50,24 @@ const projects = [
   },
 ];
 
+const projects2 = [
+  {
+    title: "A Tour Aplication",
+    image: "images/Tour.png",
+    link: "https://tours-9w4s.onrender.com",
+  },
+  {
+    title: "An E-commerce Aplication",
+    image: "images/E-commerce.png",
+    link: "https://lukesecommerce.onrender.com",
+  },
+  {
+    title: "Everyday Todo Aplication",
+    image: "images/Todo.png",
+    link: "https://lukestodo.onrender.com/",
+  },
+];
+
 const Projects = () => {
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;

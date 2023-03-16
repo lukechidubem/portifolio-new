@@ -57,6 +57,12 @@ const SingleBlogPage = () => {
     <Container
       maxWidth="md"
       // className={classes.root}
+      sx={{
+        flexGrow: 1,
+        padding: "20px",
+
+        padding: "15px",
+      }}
     >
       <Typography gutterBottom variant="h3" component="h1">
         {blogPost.title}
@@ -64,12 +70,20 @@ const SingleBlogPage = () => {
       <Box
         component="img"
         // className={classes.image}
+        sx={{
+          width: "100%",
+          height: "auto",
+          marginBottom: "20px",
+        }}
         src={blogPost.image}
         alt={blogPost.title}
       />
       <Typography
         variant="body1"
         // className={classes.body}
+        sx={{
+          marginBottom: "20px",
+        }}
       >
         {blogPost.body}
       </Typography>
