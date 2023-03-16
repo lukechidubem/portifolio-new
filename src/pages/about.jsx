@@ -77,7 +77,11 @@ function AboutPage() {
             {" "}
             Hi, I'm Dubem Luke
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}>
+          <Typography
+            className="about-text"
+            variant="body1"
+            sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}
+          >
             A proactive Full-Stack Software Engineer with a background in
             Business and Maritime Management. I specialized in JavaScript, HTML,
             CSS, NodeJS, ExpressJS, ReactJS, NextJS, TypeScript and more. I
@@ -85,13 +89,21 @@ function AboutPage() {
             collaboration that leads to quality products & results.
           </Typography>
 
-          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}>
+          <Typography
+            className="about-text"
+            variant="body1"
+            sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}
+          >
             I also love Meeting with the software development team to define the
             scope and scale of software projects thereby leading to the software
             architectural design. I am equally eager to expand my knowledge and
             implement my knowledge in a practical and professional environment.
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem", ml: 2 }}>
+          <Typography
+            className="about-text"
+            variant="body1"
+            sx={{ mb: 2, fontSize: "1.5rem", ml: 2 }}
+          >
             In my free time, I enjoy sports, networking, and spending time with
             my family and friends.
           </Typography>

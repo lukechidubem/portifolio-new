@@ -22,4 +22,8 @@
   .contact-about {
     height: auto !important;
   }
+
+  .about-text {
+    font-size: 1rem !important;
+  }
 }

@@ -117,8 +117,8 @@ const ContactPage = () => {
                 sx={{ mb: 2, fontSize: "1.2rem" }}
                 gutterBottom
               >
-                Alternatively, you can connect with me on LinkedIn or GitHub to
-                stay up-to-date on my latest projects and activities. I'm also
+                Alternatively, you can connect with me on GitHub to stay
+                up-to-date on my latest projects and activities. I'm also
                 available for freelance work, so feel free to inquire about my
                 availability and rates.
               </Typography>
