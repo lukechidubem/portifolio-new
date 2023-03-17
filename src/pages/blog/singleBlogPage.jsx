@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase";
 import { collection, doc, getDoc, query, where } from "firebase/firestore";
-
+// import ModalImage from "react-modal-image";
 import { useParams } from "react-router-dom";
 import { Typography, Container, Box, useTheme } from "@mui/material";
 import { GradientOverlay } from "../about";
+
+import "../home.css";
 
 const SingleBlogPage = () => {
   const { postId } = useParams();
   const [blogPost, setBlogPost] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  // const [isZoomed, setIsZoomed] = useState(false);
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
@@ -78,6 +81,22 @@ const SingleBlogPage = () => {
         </Typography>
         {blogPost.image?.split(",")?.map((img) => {
           return (
+            // <ModalImage
+            //   component="img"
+            //   sx={{
+            //     width: "100%",
+            //     height: "auto",
+            //     marginBottom: "20px",
+            //   }}
+            //   show={isZoomed}
+            //   imageBackgroundColor="#fff"
+            //   className="custom-modal"
+            //   small={img}
+            //   large={img}
+            //   // src={img}
+            //   alt={blogPost.title}
+            //   onClick={() => setIsZoomed(true)}
+            // />
             <Box
               component="img"
               // className={classes.image}
@@ -85,6 +104,7 @@ const SingleBlogPage = () => {
                 width: "100%",
                 height: "auto",
                 marginBottom: "20px",
+                borderRadius: "16px",
               }}
               src={img}
               alt={blogPost.title}

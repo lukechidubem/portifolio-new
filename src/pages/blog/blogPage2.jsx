@@ -54,10 +54,15 @@ const BlogPage2 = () => {
 
   console.log(blogPosts);
 
+  // Sort blogPosts by date created in descending order
+  const sortedBlogPosts = [...blogPosts].sort((a, b) => {
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  });
+
   const postsPerPage = 3;
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = sortedBlogPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -94,54 +99,53 @@ const BlogPage2 = () => {
 
       <Grid container spacing={3}>
         {/* {blogPosts.map((blogPost) => ( */}
-        {currentPosts.map((blogPost) => (
-          <Grid item key={blogPost.postId} xs={12} sm={6} md={4}>
-            <Card
-              sx={{ height: "100%", display: "flex", flexDirection: "column" }}
-            >
-              <Link to={`/blog/${blogPost.postId}`}>
-                {/* <CardMedia
-                  // className={classes.cardMedia}
-                  sx={{ flexGrow: 1, paddingTop: "56.25%" }}
-                  image={blogPost.image}
-                  title={blogPost.title}
-                /> */}
-
-                <CardMedia
-                  // className={classes.cardMedia}
-                  sx={{ flexGrow: 1, paddingTop: "56.25%" }}
-                  image={blogPost.image?.split(",")[0]}
-                  title={blogPost.title}
-                />
-              </Link>
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h3" component="h2">
-                  {blogPost.title}
-                </Typography>
-                {/* <Typography>{post.body}</Typography> */}
-                <Typography variant="h5">
-                  {blogPost.body.substring(0, 100)}...{" "}
-                  <Link
-                    to={`/blog/${blogPost.postId}`}
-                    // className={classes.readMoreButton}
-                    style={{
-                      marginTop: "auto",
-                      marginLeft: "auto",
-                      color: "#0099ff",
-                    }}
-                  >
-                    Read More
-                  </Link>
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
+        {currentPosts
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .map((blogPost) => (
+            <Grid item key={blogPost.postId} xs={12} sm={6} md={4}>
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Link to={`/blog/${blogPost.postId}`}>
+                  <CardMedia
+                    // className={classes.cardMedia}
+                    sx={{ flexGrow: 1, paddingTop: "56.25%" }}
+                    image={blogPost.image?.split(",")[0]}
+                    title={blogPost.title}
+                  />
+                </Link>
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h3" component="h2">
+                    {blogPost.title}
+                  </Typography>
+                  {/* <Typography>{post.body}</Typography> */}
+                  <Typography variant="h5">
+                    {blogPost.body.substring(0, 100)}...{" "}
+                    <Link
+                      to={`/blog/${blogPost.postId}`}
+                      // className={classes.readMoreButton}
+                      style={{
+                        marginTop: "auto",
+                        marginLeft: "auto",
+                        color: "#0099ff",
+                      }}
+                    >
+                      Read More
+                    </Link>
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
       </Grid>
 
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={blogPosts.length}
+        totalPosts={sortedBlogPosts.length}
         paginate={paginate}
         currentPage={currentPage}
       />
