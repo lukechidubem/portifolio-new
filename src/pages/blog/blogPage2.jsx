@@ -53,13 +53,27 @@ const BlogPage2 = () => {
     );
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div
+        style={{
+          height: "80vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: background,
+          color: dark,
+        }}
+      >
+        <div>Loading...</div>
+      </div>
+    );
   if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div
       // className={classes.root}
-      style={{ backgroundColor: background, padding: "20px", flexGrow: 1 }}
+      style={{ backgroundColor: background, padding: "20px" }}
     >
       <GradientOverlay />
       <TextField

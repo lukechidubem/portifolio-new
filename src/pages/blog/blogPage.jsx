@@ -34,8 +34,9 @@ const BlogPage = () => {
     const newPost = {
       title,
       image,
-      body: body,
+      body,
       postId,
+      createdAt: Date.now(),
     };
 
     console.log("working");

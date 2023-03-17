@@ -13,6 +13,10 @@ import { GradientOverlay } from "./about";
 import profileImg from "../assets/104220384.jpeg";
 import Todo from "../assets/Todo.png";
 import Tour from "../assets/Tour.png";
+import ChatB from "../assets/chat.png";
+import Social from "../assets/social.png";
+import ChatF from "../assets/chat-f.png";
+
 import Ecommerce from "../assets/E-commerce.png";
 
 const projects = [
@@ -56,7 +60,7 @@ const projects = [
 const projects2 = [
   {
     id: 1,
-    title: "A Tour Aplication",
+    title: "A Tour Application",
     image: `${Tour}`,
     description:
       "A Nodejs, Express and MongoDB with Pug templating Tour application. The application allows users to register, login, edit profile, change password, reset password, book tours, make payment, receive mails and much more. It also has admin functionalities.",
@@ -64,7 +68,7 @@ const projects2 = [
   },
   {
     id: 2,
-    title: "An E-commerce Aplication",
+    title: "An E-commerce Application",
     image: `${Ecommerce}`,
     description:
       "A React, Nodejs, Express and MongoDB E-commerce application. This application allows users to register, login, edit profile, order for products, make payment, view order history and much more. It also has Admin pages like, dashboard and all other Admin functionalities.",
@@ -72,20 +76,45 @@ const projects2 = [
   },
   {
     id: 3,
-    title: "Everyday Todo Aplication",
+    title: "A complete modern Chat Application APIs",
+    image: `${ChatB}`,
+    description:
+      "A complete modern Chat Application API that allows users create account, verify email with OTP, one to one chat, group chat, video chat, update profile, delete chats, online status and lots more. Has almost every features of chat applications",
+    link: "https://github.com/lukechidubem/CALChat-backend",
+  },
+  {
+    id: 4,
+    title: "Everyday Todo Application",
     description: "A vary handy todo application for your every day use",
     image: `${Todo}`,
     link: "https://lukestodo.onrender.com/",
   },
 
   {
-    id: 4,
-    title: "Food Recipe Aplication",
+    id: 5,
+    title: "Food Recipe Application",
     description:
       "A MVC pattern and modern Javascript application of a food recipe. Implemented using food recipe API from Forkify API . The application allows the user to search and view various kinds of food and how to cook them. Users will also be able to add, remove or bookmark custom food recipes. ",
     image:
       "https://media.istockphoto.com/id/628097352/photo/fresh-vegetables.jpg?s=612x612&w=is&k=20&c=DPzQbAG4nekhx3RdylzJWXjGhGe9WRdXz3Pz4m1w6D4=",
     link: "https://github.com/lukechidubem/Food-recipe-app.git",
+  },
+
+  {
+    id: 6,
+    title: "A Social Media Application APIs",
+    image: `${Social}`,
+    description:
+      "A  Social Media Application API that allows users create account, verify email with OTP, send friend request, accept or decline request, post updates, comment on post, like and unlike post, delete and update funtionalities and many more functionalities. ",
+    link: "https://github.com/lukechidubem/Social-APIs",
+  },
+
+  {
+    id: 7,
+    title: "A CALChat ",
+    image: `${ChatF}`,
+    description: "A chat application. In progress...",
+    link: "https://github.com/lukechidubem/CALChat",
   },
 ];
 
