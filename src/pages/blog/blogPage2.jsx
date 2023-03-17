@@ -31,11 +31,10 @@ const BlogPage2 = () => {
   });
 
   const theme = useTheme();
-  const neutralLight = theme.palette.neutral.light;
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
-  const primaryLight = theme.palette.primary.light;
-  const alt = theme.palette.background.alt;
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setBlogPosts(blogPostsData || []);
@@ -52,6 +51,15 @@ const BlogPage2 = () => {
       )
     );
   };
+
+  console.log(blogPosts);
+
+  const postsPerPage = 3;
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (loading)
     return (
@@ -85,7 +93,8 @@ const BlogPage2 = () => {
       />
 
       <Grid container spacing={3}>
-        {blogPosts.map((blogPost) => (
+        {/* {blogPosts.map((blogPost) => ( */}
+        {currentPosts.map((blogPost) => (
           <Grid item key={blogPost.postId} xs={12} sm={6} md={4}>
             <Card
               sx={{ height: "100%", display: "flex", flexDirection: "column" }}
@@ -122,8 +131,84 @@ const BlogPage2 = () => {
           </Grid>
         ))}
       </Grid>
+
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={blogPosts.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
     </div>
   );
 };
 
 export default BlogPage2;
+
+// Pagination Component
+
+const Pagination = ({ postsPerPage, totalPosts, currentPage, paginate }) => {
+  const pageNumbers = [];
+  const [currentBlock, setCurrentBlock] = useState(1);
+
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const firstPage = (currentBlock - 1) * 3 + 1;
+  const lastPage = Math.min(currentBlock * 3, pageNumbers.length);
+
+  const handleClick = (number) => {
+    paginate(number);
+    setCurrentBlock(Math.ceil(number / 3));
+  };
+
+  return (
+    <nav>
+      <ul
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "30px",
+          listStyle: "none",
+        }}
+      >
+        {firstPage > 1 && (
+          <li>
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={() => handleClick(firstPage - 3)}
+              style={{ margin: "0 5px" }}
+            >
+              &laquo;
+            </Button>
+          </li>
+        )}
+        {pageNumbers.slice(firstPage - 1, lastPage).map((number) => (
+          <li key={number}>
+            <Button
+              variant={currentPage === number ? "contained" : "outlined"}
+              // color="secondary"
+              onClick={() => handleClick(number)}
+              style={{ margin: "0 5px", color: "#0099ff" }}
+            >
+              {number}
+            </Button>
+          </li>
+        ))}
+        {lastPage < pageNumbers.length && (
+          <li>
+            <Button
+              variant="outlined"
+              // color="#0099ff"
+              onClick={() => handleClick(lastPage + 1)}
+              style={{ margin: "0 5px", color: "#0099ff" }}
+            >
+              &raquo;
+            </Button>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};

@@ -9,6 +9,7 @@ import { GradientOverlay } from "../about";
 const SingleBlogPage = () => {
   const { postId } = useParams();
   const [blogPost, setBlogPost] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
@@ -23,11 +24,30 @@ const SingleBlogPage = () => {
     getDoc(postRef).then((doc) => {
       if (doc.exists) {
         setBlogPost(doc.data());
+
+        setIsLoading(false);
       } else {
         console.log("No such document!");
+        setIsLoading(false);
       }
     });
   }, [postId]);
+
+  if (isLoading)
+    return (
+      <div
+        style={{
+          height: "80vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: background,
+          color: dark,
+        }}
+      >
+        <div>Loading...</div>
+      </div>
+    );
 
   return (
     <div
