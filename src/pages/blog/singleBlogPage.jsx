@@ -76,7 +76,22 @@ const SingleBlogPage = () => {
         >
           {blogPost.title}
         </Typography>
-        <Box
+        {blogPost.image?.split(",")?.map((img) => {
+          return (
+            <Box
+              component="img"
+              // className={classes.image}
+              sx={{
+                width: "100%",
+                height: "auto",
+                marginBottom: "20px",
+              }}
+              src={img}
+              alt={blogPost.title}
+            />
+          );
+        })}
+        {/* <Box
           component="img"
           // className={classes.image}
           sx={{
@@ -86,7 +101,8 @@ const SingleBlogPage = () => {
           }}
           src={blogPost.image}
           alt={blogPost.title}
-        />
+        /> */}
+
         {/* <Typography
           variant="h4"
           // className={classes.body}

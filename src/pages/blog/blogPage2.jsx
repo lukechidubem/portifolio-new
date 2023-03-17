@@ -100,10 +100,17 @@ const BlogPage2 = () => {
               sx={{ height: "100%", display: "flex", flexDirection: "column" }}
             >
               <Link to={`/blog/${blogPost.postId}`}>
-                <CardMedia
+                {/* <CardMedia
                   // className={classes.cardMedia}
                   sx={{ flexGrow: 1, paddingTop: "56.25%" }}
                   image={blogPost.image}
+                  title={blogPost.title}
+                /> */}
+
+                <CardMedia
+                  // className={classes.cardMedia}
+                  sx={{ flexGrow: 1, paddingTop: "56.25%" }}
+                  image={blogPost.image?.split(",")[0]}
                   title={blogPost.title}
                 />
               </Link>
