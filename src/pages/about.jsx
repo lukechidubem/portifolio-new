@@ -44,7 +44,7 @@ function AboutPage() {
         component="h1"
         align="center"
         sx={{
-          mb: 2,
+          mb: 6,
           fontSize: "3rem",
           fontWeight: "bold",
           color: "#0099ff",
@@ -80,7 +80,7 @@ function AboutPage() {
           <Typography
             className="about-text"
             variant="body1"
-            sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}
+            sx={{ mb: 2, fontSize: "1.5rem", mx: 2, textAlign: "justify" }}
           >
             A proactive Full-Stack Software Engineer with a background in
             Business and Maritime Management. I specialized in JavaScript, HTML,
@@ -92,7 +92,7 @@ function AboutPage() {
           <Typography
             className="about-text"
             variant="body1"
-            sx={{ mb: 2, fontSize: "1.5rem", mx: 2 }}
+            sx={{ mb: 2, fontSize: "1.5rem", mx: 2, textAlign: "justify" }}
           >
             I also love Meeting with the software development team to define the
             scope and scale of software projects thereby leading to the software
@@ -102,7 +102,7 @@ function AboutPage() {
           <Typography
             className="about-text"
             variant="body1"
-            sx={{ mb: 2, fontSize: "1.5rem", ml: 2 }}
+            sx={{ mb: 2, fontSize: "1.5rem", ml: 2, textAlign: "justify" }}
           >
             In my free time, I enjoy sports, networking, and spending time with
             my family and friends.
@@ -188,6 +188,7 @@ function AboutPage() {
 
                 textTransform: "uppercase",
                 marginTop: "2rem",
+                textAlign: "justify",
               }}
             >
               HTML, CSS, JavaScript, React, Node.js, Express, TypeScript,
@@ -283,6 +284,7 @@ function AboutPage() {
 
                 textTransform: "uppercase",
                 marginTop: "2rem",
+                textAlign: "justify",
               }}
             >
               {" "}

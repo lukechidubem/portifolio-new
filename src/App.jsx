@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-
+import "./App.css";
 import Navbar from "./components/navbar/index";
 import HomePage from "./pages/home";
 import { useMemo } from "react";
@@ -11,7 +11,6 @@ import { themeSettings } from "./theme";
 import AboutPage from "./pages/about";
 import Projects from "./pages/projects";
 import Footer from "./components/footer";
-import Footer2 from "./components/footer2";
 import ContactPage from "./pages/contact";
 import BlogPage from "./pages/blog/blogPage";
 import BlogPage2 from "./pages/blog/blogPage2";
@@ -23,12 +22,6 @@ function App() {
 
   return (
     <div className="">
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/home" element={<Navbar />} />
-        </Routes>
-      </BrowserRouter> */}
-
       <ThemeProvider theme={theme}>
         <Navbar />
         <Routes>

@@ -81,7 +81,7 @@ const ContactPage = () => {
       <Box sx={{ marginTop: "-35px" }}>
         <GradientOverlay />
         <Container className=" contact-about" sx={{}}>
-          <Grid container spacing={2} sx={{ marginTop: "2rem" }}>
+          <Grid container spacing={6} sx={{ marginTop: "2rem" }}>
             <Grid item xs={12} md={6}>
               <Typography
                 variant="h3"
@@ -94,7 +94,7 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.2rem" }}
+                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "justify" }}
                 gutterBottom
               >
                 Thanks for visiting my portfolio! I'm always interested in
@@ -104,7 +104,7 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.2rem" }}
+                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "justify" }}
                 gutterBottom
               >
                 Whether you want to discuss a potential project, ask about my
@@ -114,7 +114,7 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.2rem" }}
+                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "justify" }}
                 gutterBottom
               >
                 Alternatively, you can connect with me on GitHub to stay
@@ -124,14 +124,14 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 1, fontSize: "1rem" }}
+                sx={{ mb: 1, fontSize: "1.2rem" }}
                 gutterBottom
               >
                 Phone: +2347038879424
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 1, fontSize: "1rem" }}
+                sx={{ mb: 1, fontSize: "1.2rem" }}
                 gutterBottom
               >
                 Email:{" "}
@@ -141,7 +141,7 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 1, fontSize: "1rem" }}
+                sx={{ mb: 1, fontSize: "1.2rem" }}
                 gutterBottom
               >
                 GitHub:{" "}

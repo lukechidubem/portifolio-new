@@ -37,19 +37,26 @@ const HomePage = () => {
       >
         <Grid container spacing={2} marginTop="3rem" marginBottom="3rem">
           <Grid item xs={12} sm={6}>
-            <Box sx={{ p: 2, color: dark }}>
+            <Box sx={{ p: 2, color: dark, fontFamily: "cursive" }}>
               <Typography
                 variant="h3"
                 component="h1"
                 sx={{ mb: 2, fontSize: "2.5rem" }}
+                color="#0099ff"
               >
                 Hi, I'm Ezeji Luke
               </Typography>
-              <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+              <Typography
+                variant="body1"
+                sx={{ mb: 2, fontSize: "1.5rem", textAlign: "justify" }}
+              >
                 I'm a Full-stack Web Developer with years of experience in
                 building websites and web applications.
               </Typography>
-              <Typography variant="body1" sx={{ mb: 2, fontSize: "1.5rem" }}>
+              <Typography
+                variant="body1"
+                sx={{ mb: 2, fontSize: "1.5rem", textAlign: "justify" }}
+              >
                 I specialized in JavaScript, HTML, CSS, NodeJS, ExpressJS,
                 ReactJS, NextJS, TypeScript and more. I have worked with clients
                 ranging from small startups to large corporations and enjoys
