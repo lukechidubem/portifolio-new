@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase";
-import { collection, query, where } from "firebase/firestore";
+import {
+  collection,
+  orderBy,
+  where,
+  // query,
+} from "firebase/firestore";
+
+import { query } from "firebase/firestore/lite";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -17,18 +24,31 @@ import {
 
 import { Link } from "react-router-dom";
 import { GradientOverlay } from "../about";
+import FormatDate from "../../components/formatDate";
+import Loading from "../../components/loading";
 
 const BlogPage2 = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const blogPostsRef = collection(firestore, "blogPosts");
-  const [searchQuery, setSearchQuery] = useState(
-    query(blogPostsRef, where("title", ">=", ""))
+
+  // const [blogPostsData, loading, error] = useCollectionData(searchQuery, {
+  //   idField: "id",
+  //   snapshotListenOptions: { includeMetadataChanges: true },
+  // });
+
+  const [titleQuery, setTitleQuery] = useState(
+    query(blogPostsRef, orderBy("title", "desc"))
   );
 
-  const [blogPostsData, loading, error] = useCollectionData(searchQuery, {
-    idField: "id",
-    snapshotListenOptions: { includeMetadataChanges: true },
-  });
+  const [titleSearchInput, setTitleSearchInput] = useState("");
+
+  const [titleBlogPostsData, titleLoading, titleError] = useCollectionData(
+    titleQuery,
+    {
+      idField: "id",
+      snapshotListenOptions: { includeMetadataChanges: true },
+    }
+  );
 
   const theme = useTheme();
   const dark = theme.palette.neutral.dark;
@@ -36,111 +56,129 @@ const BlogPage2 = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
+  // useEffect(() => {
+  //   setBlogPosts(blogPostsData || []);
+  // }, [blogPostsData]);
+
   useEffect(() => {
-    setBlogPosts(blogPostsData || []);
-  }, [blogPostsData]);
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    const searchTerm = event.target.value;
-    setSearchQuery(
-      query(
-        blogPostsRef,
-        where("title", ">=", searchTerm),
-        where("title", "<=", searchTerm + "\uf8ff")
-      )
+    setBlogPosts(
+      titleBlogPostsData?.filter((post) => {
+        const searchRegex = new RegExp(titleSearchInput, "i");
+        return searchRegex.test(post.title);
+      }) || []
     );
-  };
-
-  console.log(blogPosts);
+  }, [titleBlogPostsData, titleSearchInput]);
 
   // Sort blogPosts by date created in descending order
   const sortedBlogPosts = [...blogPosts].sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
 
-  const postsPerPage = 3;
+  const handleTitleSearch = (event) => {
+    const searchTerm = event.target.value;
+    setTitleSearchInput(searchTerm);
+    setTitleQuery(
+      query(
+        blogPostsRef,
+        where("title", ">=", searchTerm),
+        where("title", "<=", searchTerm + 8),
+        orderBy("title", "desc")
+      )
+    );
+  };
+
+  const postsPerPage = 6;
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedBlogPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  if (loading)
-    return (
-      <div
-        style={{
-          height: "80vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: background,
-          color: dark,
-        }}
-      >
-        <div>Loading...</div>
-      </div>
-    );
-  if (error) return <div>Error: {error.message}</div>;
-
   return (
     <div
       // className={classes.root}
-      style={{ backgroundColor: background, padding: "20px" }}
+      style={{
+        backgroundColor: background,
+        padding: "20px",
+        // display: "flex",
+        minHeight: "80vh",
+      }}
     >
       <GradientOverlay />
+
       <TextField
-        label="Search Blog Posts"
         variant="outlined"
-        onChange={handleSearch}
+        label="Search by title"
+        // size="small"
         // fullWidth
+        sx={{ mb: 2 }}
         margin="normal"
+        onChange={handleTitleSearch}
       />
 
       <Grid container spacing={3}>
-        {/* {blogPosts.map((blogPost) => ( */}
-        {currentPosts
-          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-          .map((blogPost) => (
-            <Grid item key={blogPost.postId} xs={12} sm={6} md={4}>
-              <Card
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <Link to={`/blog/${blogPost.postId}`}>
-                  <CardMedia
-                    // className={classes.cardMedia}
-                    sx={{ flexGrow: 1, paddingTop: "56.25%" }}
-                    image={blogPost.image?.split(",")[0]}
-                    title={blogPost.title}
-                  />
-                </Link>
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h3" component="h2">
-                    {blogPost.title}
-                  </Typography>
-                  {/* <Typography>{post.body}</Typography> */}
-                  <Typography variant="h5">
-                    {blogPost.body.substring(0, 100)}...{" "}
-                    <Link
-                      to={`/blog/${blogPost.postId}`}
-                      // className={classes.readMoreButton}
-                      style={{
-                        marginTop: "auto",
-                        marginLeft: "auto",
-                        color: "#0099ff",
-                      }}
-                    >
-                      Read More
-                    </Link>
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+        {titleLoading ? (
+          <Loading color={dark} />
+        ) : titleError ? (
+          <Typography gutterBottom color={dark} variant="h3" component="h2">
+            Error fetching posts. Please try again later.
+          </Typography>
+        ) : currentPosts.length < 1 ? (
+          <Typography
+            gutterBottom
+            variant="h3"
+            component="h2"
+            color={dark}
+            margin="2rem"
+          >
+            No post title has related input provided, please try searching with
+            another title
+          </Typography>
+        ) : (
+          currentPosts
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+            .map((blogPost) => (
+              <Grid item key={blogPost.postId} xs={12} sm={6} md={4}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <Link to={`/blog/${blogPost.postId}`}>
+                    <CardMedia
+                      // className={classes.cardMedia}
+                      sx={{ flexGrow: 1, paddingTop: "56.25%" }}
+                      image={blogPost.image?.split(",")[0]}
+                      title={blogPost.title}
+                    />
+                  </Link>
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h3" component="h2">
+                      {blogPost.title}
+                    </Typography>
+                    {/* <Typography>{post.body}</Typography> */}
+                    <Typography variant="h5">
+                      {blogPost.body.substring(0, 100)}...{" "}
+                      <Link
+                        to={`/blog/${blogPost.postId}`}
+                        // className={classes.readMoreButton}
+                        style={{
+                          marginTop: "auto",
+                          marginLeft: "auto",
+                          color: "#0099ff",
+                        }}
+                      >
+                        Read More
+                      </Link>
+                    </Typography>
+                    <FormatDate date={blogPost.createdAt} />
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))
+        )}
       </Grid>
 
       <Pagination

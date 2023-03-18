@@ -79,7 +79,7 @@ const SingleBlogPage = () => {
         >
           {blogPost.title}
         </Typography>
-        {blogPost.image?.split(",")?.map((img) => {
+        {blogPost.image?.split(",")?.map((img, i) => {
           return (
             // <ModalImage
             //   component="img"
@@ -98,6 +98,7 @@ const SingleBlogPage = () => {
             //   onClick={() => setIsZoomed(true)}
             // />
             <Box
+              key={i}
               component="img"
               // className={classes.image}
               sx={{
@@ -111,28 +112,7 @@ const SingleBlogPage = () => {
             />
           );
         })}
-        {/* <Box
-          component="img"
-          // className={classes.image}
-          sx={{
-            width: "100%",
-            height: "auto",
-            marginBottom: "20px",
-          }}
-          src={blogPost.image}
-          alt={blogPost.title}
-        /> */}
 
-        {/* <Typography
-          variant="h4"
-          // className={classes.body}
-          component="h3"
-          sx={{
-            marginBottom: "20px",
-            lineHeight: "35px",
-            wordSpacing: "3px",
-          }}
-        > */}
         {blogPost?.body?.split("\\n").map((str, i) => {
           return (
             <Typography
