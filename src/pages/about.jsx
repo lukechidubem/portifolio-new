@@ -12,6 +12,7 @@ import {
 import profileImg from "../assets/104220384.jpeg";
 
 import { styled } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 export const GradientOverlay = styled("div")(({ theme }) => ({
   position: "absolute",
@@ -25,28 +26,14 @@ export const GradientOverlay = styled("div")(({ theme }) => ({
 
 function AboutPage() {
   const theme = useTheme();
+
   const neutralLight = theme.palette.neutral.light;
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  const theme2 = createTheme({
-    typography: {
-      fontFamily: [
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "Arial",
-        "sans-serif",
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(","),
-    },
-  });
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -93,7 +80,15 @@ function AboutPage() {
             sx={{ mb: 2, fontSize: "2.5rem", ml: 2, px: 2 }}
           >
             {" "}
-            Hi, I'm Dubem Luke
+            <Typography
+              variant="h3"
+              component="h1"
+              sx={{ mb: 2, fontSize: "2.5rem" }}
+              onClick={() => navigate("/blog-write")}
+            >
+              Hi,
+            </Typography>{" "}
+            I'm Dubem Luke
           </Typography>
           <Typography
             className="about-text"
