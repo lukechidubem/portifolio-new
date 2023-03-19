@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/blog-write",
-      "destination": "/src/pages/blog/blogPage.jsx"
+      "destination": "./src/pages/blog/blogPage.jsx"
     }
   ]
 }
