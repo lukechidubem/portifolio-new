@@ -8,7 +8,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider as ReduxProvider } from "react-redux";
 import { HelmetProvider } from "react-helmet-async";
 
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import {
   persistStore,
@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
       <ReduxProvider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="/">
           {/* <PersistGate loading={null} persistor={persistStore(store)}> */}
           <App />
           {/* </PersistGate> */}

@@ -22,7 +22,7 @@ const PostCard = ({ blogPost }) => {
           />
         </Link>
         <CardContent sx={{ flexGrow: 1 }}>
-          <Typography gutterBottom variant="h3" component="h2">
+          <Typography gutterBottom variant="h3" component="h2" color="#0099ff">
             {blogPost.title}
           </Typography>
           {/* <Typography>{post.body}</Typography> */}

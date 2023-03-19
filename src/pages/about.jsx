@@ -7,6 +7,7 @@ import {
   Avatar,
   Button,
   useTheme,
+  createTheme,
 } from "@mui/material";
 import profileImg from "../assets/104220384.jpeg";
 
@@ -29,6 +30,23 @@ function AboutPage() {
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
+
+  const theme2 = createTheme({
+    typography: {
+      fontFamily: [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        '"Helvetica Neue"',
+        "Arial",
+        "sans-serif",
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(","),
+    },
+  });
 
   return (
     <Box
@@ -72,7 +90,7 @@ function AboutPage() {
           <Typography
             variant="h3"
             component="h1"
-            sx={{ mb: 2, fontSize: "2.5rem", ml: 2 }}
+            sx={{ mb: 2, fontSize: "2.5rem", ml: 2, px: 2 }}
           >
             {" "}
             Hi, I'm Dubem Luke
@@ -80,7 +98,13 @@ function AboutPage() {
           <Typography
             className="about-text"
             variant="body1"
-            sx={{ mb: 2, fontSize: "1.5rem", mx: 2, textAlign: "justify" }}
+            sx={{
+              mb: 2,
+              fontSize: "1.5rem",
+              mx: 2,
+              textAlign: "justify",
+              px: 2,
+            }}
           >
             A proactive Full-Stack Software Engineer with a background in
             Business and Maritime Management. I specialized in JavaScript, HTML,
@@ -92,7 +116,13 @@ function AboutPage() {
           <Typography
             className="about-text"
             variant="body1"
-            sx={{ mb: 2, fontSize: "1.5rem", mx: 2, textAlign: "justify" }}
+            sx={{
+              mb: 2,
+              fontSize: "1.5rem",
+              mx: 2,
+              textAlign: "justify",
+              px: 2,
+            }}
           >
             I also love Meeting with the software development team to define the
             scope and scale of software projects thereby leading to the software
@@ -102,7 +132,13 @@ function AboutPage() {
           <Typography
             className="about-text"
             variant="body1"
-            sx={{ mb: 2, fontSize: "1.5rem", ml: 2, textAlign: "justify" }}
+            sx={{
+              mb: 2,
+              fontSize: "1.5rem",
+              ml: 2,
+              textAlign: "justify",
+              px: 2,
+            }}
           >
             In my free time, I enjoy sports, networking, and spending time with
             my family and friends.
@@ -113,8 +149,8 @@ function AboutPage() {
               mt: 2,
               mr: 2,
               py: 2,
-              px: 4,
-              ml: 2,
+              px: 6,
+              ml: 4,
               backgroundColor: "#0099ff",
               color: "#333",
             }}

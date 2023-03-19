@@ -35,9 +35,9 @@ const HomePage = () => {
           height: "90vh",
         }}
       >
-        <Grid container spacing={2} marginTop="3rem" marginBottom="3rem">
+        <Grid container spacing={6} marginTop="3rem" marginBottom="3rem">
           <Grid item xs={12} sm={6}>
-            <Box sx={{ p: 2, color: dark, fontFamily: "cursive" }}>
+            <Box sx={{ px: 2, color: dark, fontFamily: "cursive" }}>
               <Typography
                 variant="h3"
                 component="h1"

@@ -71,7 +71,6 @@ const BlogPage2 = () => {
 
   return (
     <div
-      // className={classes.root}
       style={{
         backgroundColor: background,
         padding: "20px",
@@ -84,8 +83,6 @@ const BlogPage2 = () => {
       <TextField
         variant="outlined"
         label="Search by title"
-        // size="small"
-        // fullWidth
         sx={{ mb: 2 }}
         margin="normal"
         onChange={handleTitleSearch}
