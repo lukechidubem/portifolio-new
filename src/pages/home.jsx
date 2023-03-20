@@ -48,14 +48,14 @@ const HomePage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.5rem", textAlign: "justify" }}
+                sx={{ mb: 2, fontSize: "1.5rem", textAlign: "" }}
               >
                 I'm a Full-stack Web Developer with years of experience in
                 building websites and web applications.
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.5rem", textAlign: "justify" }}
+                sx={{ mb: 2, fontSize: "1.5rem", textAlign: "" }}
               >
                 I specialized in JavaScript, HTML, CSS, NodeJS, ExpressJS,
                 ReactJS, NextJS, TypeScript and more. I have worked with clients

@@ -94,7 +94,7 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "justify" }}
+                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "" }}
                 gutterBottom
               >
                 Thanks for visiting my portfolio! I'm always interested in
@@ -104,7 +104,7 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "justify" }}
+                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "" }}
                 gutterBottom
               >
                 Whether you want to discuss a potential project, ask about my
@@ -114,7 +114,7 @@ const ContactPage = () => {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "justify" }}
+                sx={{ mb: 2, fontSize: "1.3rem", textAlign: "" }}
                 gutterBottom
               >
                 Alternatively, you can connect with me on GitHub to stay

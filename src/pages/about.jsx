@@ -97,7 +97,7 @@ function AboutPage() {
               mb: 2,
               fontSize: "1.5rem",
               mx: 2,
-              textAlign: "justify",
+              textAlign: "",
               px: 2,
             }}
           >
@@ -115,7 +115,7 @@ function AboutPage() {
               mb: 2,
               fontSize: "1.5rem",
               mx: 2,
-              textAlign: "justify",
+              textAlign: "",
               px: 2,
             }}
           >
@@ -131,7 +131,7 @@ function AboutPage() {
               mb: 2,
               fontSize: "1.5rem",
               ml: 2,
-              textAlign: "justify",
+              textAlign: "",
               px: 2,
             }}
           >
@@ -219,7 +219,7 @@ function AboutPage() {
 
                 textTransform: "uppercase",
                 marginTop: "2rem",
-                textAlign: "justify",
+                textAlign: "",
               }}
             >
               HTML, CSS, JavaScript, React, Node.js, Express, TypeScript,
