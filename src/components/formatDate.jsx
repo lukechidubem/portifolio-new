@@ -4,6 +4,8 @@ import React from "react";
 const FormatDate = ({ date }) => {
   const postDate = new Date(date);
 
+  console.log(postDate.getDate());
+
   const currentDate = new Date();
 
   const timeDiff = Math.abs(currentDate.getTime() - postDate.getTime());
@@ -16,9 +18,12 @@ const FormatDate = ({ date }) => {
   });
 
   const postedDate = () => {
-    if (diffDays === 0) {
+    if (diffDays === 0 && postDate.getDate() == new Date().getDate()) {
       return "Today";
-    } else if (diffDays === 1) {
+    } else if (
+      diffDays === 1 ||
+      (diffDays === 0 && postDate.getDate() !== new Date().getDate())
+    ) {
       return "Yesterday";
     } else if (diffDays <= 7) {
       return `${diffDays} days ago`;
