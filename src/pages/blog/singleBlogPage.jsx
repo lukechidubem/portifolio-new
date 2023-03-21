@@ -3,7 +3,7 @@ import { firestore } from "../../firebase";
 import { collection, doc, getDoc, query, where } from "firebase/firestore";
 // import ModalImage from "react-modal-image";
 import { useParams } from "react-router-dom";
-import { Typography, Container, Box, useTheme } from "@mui/material";
+import { Typography, Container, Box, useTheme, Zoom } from "@mui/material";
 import { GradientOverlay } from "../about";
 
 import "../home.css";
@@ -97,19 +97,21 @@ const SingleBlogPage = () => {
             //   alt={blogPost.title}
             //   onClick={() => setIsZoomed(true)}
             // />
-            <Box
-              key={i}
-              component="img"
-              // className={classes.image}
-              sx={{
-                width: "100%",
-                height: "auto",
-                marginBottom: "20px",
-                borderRadius: "16px",
-              }}
-              src={img}
-              alt={blogPost.title}
-            />
+            <Zoom in={true} timeout={1000}>
+              <Box
+                key={i}
+                component="img"
+                // className={classes.image}
+                sx={{
+                  width: "100%",
+                  height: "auto",
+                  marginBottom: "20px",
+                  borderRadius: "16px",
+                }}
+                src={img}
+                alt={blogPost.title}
+              />
+            </Zoom>
           );
         })}
 

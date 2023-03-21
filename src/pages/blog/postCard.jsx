@@ -11,6 +11,8 @@ const PostCard = ({ blogPost }) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          borderRadius: "16px",
+          margin: "10px",
         }}
       >
         <Link to={`/blog/${blogPost.postId}`}>
