@@ -21,12 +21,13 @@ const FormatDate = ({ date }) => {
     if (diffDays === 0 && postDate.getDate() == new Date().getDate()) {
       return "Today";
     } else if (
-      diffDays === 1 ||
-      (diffDays === 0 && postDate.getDate() !== new Date().getDate())
+      diffDays === 1 &&
+      diffDays === 0 &&
+      postDate.getDate() !== new Date().getDate()
     ) {
       return "Yesterday";
     } else if (diffDays <= 7) {
-      return `${diffDays} days ago`;
+      return `${diffDays + 1} days ago`;
     } else if (diffDays <= 14) {
       return "A week ago";
     } else if (diffDays <= 30) {
