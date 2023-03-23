@@ -95,7 +95,7 @@ const BlogPage2 = () => {
           <Typography gutterBottom color={dark} variant="h3" component="h2">
             Error fetching posts. Please try again later.
           </Typography>
-        ) : currentPosts.length < 1 ? (
+        ) : currentPosts.length < 1 && titleSearchInput !== "" ? (
           <Typography
             gutterBottom
             variant="h3"
